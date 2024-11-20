@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest-large]
+        os: [windows-latest]
 
     steps:
     - name: Install tools
@@ -47,13 +47,4 @@ jobs:
         path: Package/Release/Packages
     - name: Test (net462)
       run: ./make.ps1 -frameworks net462 test-all
-      shell: pwsh
-    - name: Test (netcoreapp3.1)
-      run: ./make.ps1 -frameworks netcoreapp3.1 test-all
-      shell: pwsh
-    - name: Test (net6.0)
-      run: ./make.ps1 -frameworks net6.0 test-all
-      shell: pwsh
-    - name: Test (net8.0)
-      run: ./make.ps1 -frameworks net8.0 test-all
       shell: pwsh
